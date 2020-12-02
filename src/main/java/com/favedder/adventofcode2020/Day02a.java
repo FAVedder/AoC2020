@@ -24,24 +24,20 @@ public class Day02a {
                 inputArrayFixed[i][2] = temp[2].trim();
             }
 
-            for (int i = 0; i < inputArrayFixed.length; i++) {
-
+            for (String[] password : inputArrayFixed) {
                 int amount = 0;
-                int min = Integer.parseInt(inputArrayFixed[i][0].substring(0, inputArrayFixed[i][0].indexOf("-")));
-                int max = Integer.parseInt(inputArrayFixed[i][0].substring((inputArrayFixed[i][0].indexOf("-") + 1), inputArrayFixed[i][0].length()));
-                char letter = inputArrayFixed[i][1].charAt(0);
-
-                for (int j = 0; j < inputArrayFixed[i][2].length(); j++) {
-                    char tocheck = inputArrayFixed[i][2].charAt(j);
+                int min = Integer.parseInt(password[0].substring(0, password[0].indexOf("-")));
+                int max = Integer.parseInt(password[0].substring(password[0].indexOf("-") + 1, password[0].length()));
+                char letter = password[1].charAt(0);
+                for (int j = 0; j < password[2].length(); j++) {
+                    char tocheck = password[2].charAt(j);
                     if (tocheck == letter) {
                         amount++;
                     }
                 }
-
                 if (amount <= max && amount >= min) {
                     solution++;
                 }
-
             }
 
             System.out.println("Solution: " + solution);
